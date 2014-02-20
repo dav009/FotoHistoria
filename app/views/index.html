@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="js/vendor/jquery-1.9.1.min.js"></script>
+    <script src="js/vendor/underscore.js"></script>
+    <script src="js/vendor/backbone.js"></script>
+    <script src="js/vendor/swig.min.js"></script>
+
+    <script src="js/init.js"></script>
+    <script src="js/backbone/models/photoStory.js"></script>
+    <script src="js/backbone/views/storyStep.js"></script>
+    <script src="js/backbone/routers/base.js"></script>
+
+
+    <link href="bootstrap-3.1.1-dist/css/bootstrap.min.css" rel="stylesheet">
+     <link href="bootstrap-3.1.1-dist/css/bootstrap-theme.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/estilos.css">
+
+
+
+
+    <title>Historia</title>
+</head>
+<body>
+
+    {% raw %}
+    <script id="photoStepTemplate" type="text/template">
+            <div id="descriptionContainer" class="description">
+
+                <div id="choices" class="jumbotron">
+                   <h2> {{photoStep.title}} </h2>
+                   <p class="details">
+                       {{photoStep.description}}
+                   </p>
+
+                   {% for optionKey, option in photoStep.children %}
+                   <button type="button"  data-option="{{optionKey}}" class="btn btn-lg btn-info">{{ option.title }}</button>
+                   {% endfor %}
+                   <button type="button" id="home"  onclick="window.location.href='/';" data-option="{{optionKey}}" class="btn btn-lg btn-info">Start Again</button>
+                </div>
+            </div>
+
+        <div id="mainContainer" class="main">
+            
+            <div id="mainPhoto" class="photography">
+                <img src="/img/{{photoStep.img}}"/>
+            </div>
+
+        </div>
+
+    </script>
+    {% endraw %}
+
+</body>
+  <script src="js/main.js"></script>
+</html>
