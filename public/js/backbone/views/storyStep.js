@@ -31,8 +31,17 @@ PhotoStory.Views.StoryStepView = Backbone.View.extend({
 	},
 
 	select: function(e){
-		var clickedOptionID = e.target.getAttribute('data-option');
-		Backbone.history.navigate('step/'+clickedOptionID,  true)
+		var optionID = e.target.getAttribute('data-option');
+		var currentStep = window.currentStep.get('children')[optionID];
+        window.road.push(optionID)
+
+        var currentStep = window.Story
+        for (var i=0;i< window.road.length;i++)
+        { 
+            currentStep = currentStep['children'][window.road[i]]
+        }
+        
+        window.currentStep.set(currentStep)
 	    
 	}
 });

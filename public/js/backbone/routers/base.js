@@ -14,8 +14,6 @@ PhotoStory.Routers.BaseRouter = Backbone.Router.extend({
 	},
 
     step: function(optionID){
-        var self = this;
-        var currentStep = window.currentStep.get('children')[optionID];
-        window.currentStep.set(currentStep)
+
     }
 });
